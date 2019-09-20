@@ -1,1 +1,10 @@
-
+double sum=0;
+Int i;
+for(i=0, employee[i].salary>5000,i++){
+double temp=0;
+temp=employee[i].salary;
+if (temp>5000) {
+sum=sum+temp;
+}
+return sum;
+}
