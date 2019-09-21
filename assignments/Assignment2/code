@@ -100,4 +100,17 @@ return sum;
         return 0;
     }
     ------------------------------------------------------------------------------------------
+        /*
+            Implement this method to reverse firstName of employee.
+            Ex. Before: employee.getFirstName() -> "John"
+            After : employee.getFirstName() -> "nhoJ"
+         */
+    public void reverseFirstName(Employee employee) {
+        StringBuffer sbf = new StringBuffer(employee.getFirstName());
+        sbf.reverse();
+        employee.setFirstName(sbf.reverse().toString());
+    }
+
+    ------------------------------------------------------------------------------------------
+    
     
