@@ -44,3 +44,29 @@ return sum;
     
     
     ---------------------------------------------------------------------------------
+    
+    /*
+            This method should calculate tax for an employee in dollars
+            If salary of employee is less than or equal to 2500, tax should be 10%
+            If salary of employee is greater than 2500 but less than or equal to 5000, tax should be 25%
+            If salary of employee is greater than 5000, tax should be 35%
+        */
+    ppublic double calculateTax(Employee employee) {
+
+        double tax=0;
+        double salary;
+        if (salary<=2500){
+            tax=salary*0.1;
+        }
+        else if(salary>2500 && salary<=5000){
+            tax=salary*0.25;
+        }
+        else if (salary>5000){
+            tax=salary*0.35;
+        }
+
+
+        return 0.0;
+    }
+-------------------------------------------------------------------------------------------
+
