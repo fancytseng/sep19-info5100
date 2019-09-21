@@ -3,7 +3,107 @@ Design a Car Rental System
 Design a Course Registration Platform
 Design a vending Machine (will accept coins of different denominations and vends out candies, soda etc)
 Design a Parking lot
+---------------------------------------------------------------------------------------------------------
+//Design a Car Rental System
 
+User can:
+1.Login
+2.Search cars based on parameters(brand,budget,type)
+3.Review order
+4.Rent cars
+5.Cancel renting
+
+
+Class:User
+Data:name, phoneNumber, ssn, driverLicense,creditCardDetails
+Behaviour:
+loginCarRentalApp(){
+App.login(name);
+}
+searchCars(searchParams){
+List<Cars> cars = RentalService.search(searchParams);
+//display cars to user
+}
+rentACar(){
+rentingDetails = rentalService.rentACar(carId,rentalDate,returnDate,brandOfCar)
+}
+review(){
+System.out.print(this.order);
+}
+contactCarRentalOwner(){
+HelpService.call(orderId);
+}
+cancel(orderId){
+carRentalApp.cancelOrder(orderId);
+}
+
+Class:CreditCardDetails
+Data: name,cardNumber,cardType,expiredDate
+Behaviour:
+isCardExpired(){
+Date today = new Date();
+if(today.compareTo(expiredDay)==1){
+return true;
+else{
+return false;
+}
+}
+}
+
+Class:CarRentalOwner
+Data:name,address,list of cars, ownerId
+
+Class:Car
+Data:name,brand,totalCars,carPrice,carId,reviews,rating
+Behaviour:
+checkAvailability(date,numberOfCars,brand){
+//check availability of number of specific brand of car on a specific date
+}
+
+Class: carRentalService
+Behaviour:
+search(searchParams){
+//call to fetch all cars and store in List<Cars> cars
+List<Cars> availableCars
+List<Cars> cars
+
+for (i=0; i < cars.size(); i++){
+//check if car is available for specific date
+Boolean isAvailable = true;
+while (searchParams.rentalDate.compareTo(searchParams.returnDate)){
+if (!cars.get(i).checkAvailability(searchParams.rentalDate,searchParams.numberOfCars)){
+is available = false;
+break;
+}
+}
+}
+if(isAvailable && cars.get(i).contains(searchParams) && cars.get(i).price<=searchParams.maxPrice
+&& cars.get(i).price>=searchParams.minPrice && cars.get(i).name.indexOf(searchParams.name)){
+availableCars.add(cars.get(i));
+return availableCars;
+}
+
+Behaviours:
+rentACar(carId,rentalDate,returnDate,brandOfCars){
+//fetch car object from carId
+Car car;
+//calculate number of days
+int numberOfDays;
+
+//fetch creditCardDetails if saved
+if(!creditCardDetails.notExpired()){
+//calculate rental fee
+int price = carRentalPrice * numberOfDays;
+paymentService.makePayment(userId,price);
+return rentalDetails;
+}
+else throw new Exception ("your card is expired!");
+}
+
+Behaviour:
+cancelrental(carRetnalId){
+paymentService.initialRefund(user,price)
+}
 ---------------------------------------------------------------------------------------------------------
 //Design a vending Machine (will accept coins of different denominations and vends out candies, soda etc)
 
