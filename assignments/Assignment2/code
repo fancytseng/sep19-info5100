@@ -69,4 +69,15 @@ return sum;
         return 0.0;
     }
 -------------------------------------------------------------------------------------------
-
+/*
+            We are given two employee objects.
+            Implement this method to swap salaries of employees
+        */
+    public void swap(Employee firstEmployee, Employee secondEmployee) {
+        int temp=0;
+        temp=firstEmployee;
+        firstEmployee=secondEmployee;
+        secondEmployee=temp;
+    }
+    
+    ----------------------------------------------------------------------------------------------------
