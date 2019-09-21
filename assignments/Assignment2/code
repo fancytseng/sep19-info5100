@@ -81,3 +81,23 @@ return sum;
     }
     
     ----------------------------------------------------------------------------------------------------
+       /*
+            Return number of employees whose age is greater than 50
+            Note: Employee array is passed, not employee
+         */
+    public int employeesAgeGreaterThan50(Employee[] employees) {
+        int ageOfEmployee;
+        int count = 0;
+        Int i;
+        for (i=0,i<= employees.length, i++){
+            if (ageOfEmployee>50);
+            count = count +1;
+        }
+        else {
+            count=1;
+
+        }
+        return 0;
+    }
+    ------------------------------------------------------------------------------------------
+    
