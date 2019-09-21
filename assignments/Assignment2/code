@@ -25,8 +25,7 @@ return sum;
             "FizzBuzz" - if id of employee is divisible by both 3 and 5
          */
     public void fizzBuzz(Employee employee) {
-        Int i;
-        for (i=0,i<=1000,i++);
+        Int i=employee.getId();
             if (i%3==0){
                 System.out.println("Fizz");
             }
@@ -36,7 +35,7 @@ return sum;
             else if (i%5==0&&i%3==0){
                 System.out.println("FizzBuzz");
             }
-    }
+    
     
     
     
@@ -54,15 +53,14 @@ return sum;
     ppublic double calculateTax(Employee employee) {
 
         double tax=0;
-        double salary;
-        if (salary<=2500){
-            tax=salary*0.1;
+        if (employee[i].getSalary<=2500){
+            tax=employee[i].getSalary*0.1;
         }
-        else if(salary>2500 && salary<=5000){
-            tax=salary*0.25;
+        else if(employee[i].getSalary>2500 && employee[i].getSalary<=5000){
+            tax=employee[i].getSalaryy*0.25;
         }
-        else if (salary>5000){
-            tax=salary*0.35;
+        else if (employee[i].getSalary>5000){
+            tax=employee[i].getSalary*0.35;
         }
 
 
@@ -86,18 +84,18 @@ return sum;
             Note: Employee array is passed, not employee
          */
     public int employeesAgeGreaterThan50(Employee[] employees) {
-        int ageOfEmployee;
         int count = 0;
         Int i;
         for (i=0,i<= employees.length, i++){
-            if (ageOfEmployee>50);
+            if (employee[i].getAge()>50);
             count = count +1;
         }
         else {
             count=1;
 
         }
-        return 0;
+        System.out.printLn(count);
+        return count;
     }
     ------------------------------------------------------------------------------------------
         /*
@@ -106,7 +104,7 @@ return sum;
             After : employee.getFirstName() -> "nhoJ"
          */
     public void reverseFirstName(Employee employee) {
-        StringBuffer sbf = new StringBuffer(employee.getFirstName());
+        StringBuffer sbf = new StringBuffer(employee[i].getFirstName());
         sbf.reverse();
         employee.setFirstName(sbf.reverse().toString());
     }
@@ -120,7 +118,7 @@ return sum;
          */
     public void isContainDigit(Employee employee) {
         Boolean b;
-        b=employeeFirstName.isDigit(employee.getFirstName())
+        b=employee[i].getFirstName.isDigit(employee.getFirstName())
     }
     -----------------------------------------------------------------------------------
      /*
