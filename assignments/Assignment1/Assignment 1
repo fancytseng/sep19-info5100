@@ -4,4 +4,71 @@ Design a Course Registration Platform
 Design a vending Machine (will accept coins of different denominations and vends out candies, soda etc)
 Design a Parking lot
 
+---------------------------------------------------------------------------------------------------------
+//Design a vending Machine (will accept coins of different denominations and vends out candies, soda etc)
 
+Customer can
+1.put the coins into a vending machine
+2.Select the drinks that he/she wants
+3.Get the change and drinks
+4 Not get the drinks and get the refund
+5.Cancel
+
+
+Class: Customer
+Data: creditCardDetails, theIdOfTheDrinksThatHeIsGetting
+Behaviour:
+selectOrder(drinksNumber) {
+Drinks drinks = customer.selectOrder(drinksNumber)
+}
+Behaviour:
+cancelOrder(){
+customer.pressCancelButton()
+}
+
+Class: CreditCardDetails
+Data: name,bankName, cardNumber,cardType,expiredDate
+Behaiour:
+isCardExpired(){
+Date today = new Date();
+if(today.compareTo(expiredDate)==1)
+return true;
+return false;
+}
+
+Class:Coins
+Data:Quarter, Dime, Penny
+Behaviour:
+isSufficient(){
+This.coin=coin(){
+if(valueOfCoin==priceOfDrinks){
+return true;
+}
+else; return false;
+}
+
+Class: VendingMachine
+Data: quantityOfDrinks, priceOfDrinks
+Behavior:
+checkAvailability(quantityOfDrinks){
+//check availability of quantity of drinks on specific row and column
+}
+
+for (i=0; i<quantityOfDrinks(); i++){
+//check if the drinks quantity that customer want is enough
+Boolean isEnough = true;
+while(quantityCustomerSelect.compareTo(quantityOfDrinks)){
+if(!vendingMachine.get (i).checkEnoughOrNot(quantityOfDrinks)){
+isEnough = true;
+break;
+}
+if(isEnoug&&creditCard.notExpired.sufficientAmount
+&&customer.SelectPrice <= creditCardAvailableAmount
+&&vendingMachine.working){
+vendingMachine.pushTheDrinksOut(drinks);
+customer.getsTheDrinks(drinks);
+}
+return 0;
+}
+
+----------------------------------------------------------------------
