@@ -44,7 +44,9 @@ This.coin=coin(){
 if(valueOfCoin==priceOfDrinks){
 return true;
 }
-else; return false;
+else {
+return false;
+}
 }
 
 Class: VendingMachine
@@ -61,6 +63,9 @@ while(quantityCustomerSelect.compareTo(quantityOfDrinks)){
 if(!vendingMachine.get (i).checkEnoughOrNot(quantityOfDrinks)){
 isEnough = true;
 break;
+}
+else{
+throw new SoldOutException("Sold Out, Please buy another item");
 }
 if(isEnoug&&creditCard.notExpired.sufficientAmount
 &&customer.SelectPrice <= creditCardAvailableAmount
