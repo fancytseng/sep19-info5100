@@ -1,4 +1,8 @@
-public double salaryGreaterThanFiveThousand(Employee[] employees) {
+/*
+        This method should return the sum of salaries of employees having salary greater than 5000
+        Note: Employee array is passed, not employee
+     */
+     public double salaryGreaterThanFiveThousand(Employee[] employees) {
 double sum=0;
 Int i;
 for(i=0, employee[i].salary>5000,i++){
@@ -9,3 +13,34 @@ sum=sum+temp;
 }
 return sum;
 }
+
+
+
+
+-------------------------------------------------------------------------------------
+    /*
+            This method should print either "Fizz", "Buzz" or "FizzBuzz"
+            "Fizz" - if id of employee is divisible by 3
+            "Buzz" - if id of employee is divisible by 5
+            "FizzBuzz" - if id of employee is divisible by both 3 and 5
+         */
+    public void fizzBuzz(Employee employee) {
+        Int i;
+        for (i=0,i<=1000,i++);
+            if (i%3==0){
+                System.out.println("Fizz");
+            }
+            else if (i%5==0){
+                System.out.println("Buzz");
+            }
+            else if (i%5==0&&i%3==0){
+                System.out.println("FizzBuzz");
+            }
+    }
+    
+    
+    
+    
+    
+    
+    ---------------------------------------------------------------------------------
