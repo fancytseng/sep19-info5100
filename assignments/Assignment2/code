@@ -112,5 +112,15 @@ return sum;
     }
 
     ------------------------------------------------------------------------------------------
-    
+    /*
+            Print "true" if employee's first name contain one or more digits
+            Print "false" if employee's first name doesn't contain any digit
+            Ex: employee.getFirstName() -> "ha8l" == true
+            employee.getFirstName() -> "hail" == false
+         */
+    public void isContainDigit(Employee employee) {
+        Boolean b;
+        b=employeeFirstName.isDigit(employee.getFirstName())
+    }
+    -----------------------------------------------------------------------------------
     
