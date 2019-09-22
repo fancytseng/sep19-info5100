@@ -104,10 +104,20 @@ return sum;
             After : employee.getFirstName() -> "nhoJ"
          */
     public void reverseFirstName(Employee employee) {
-        StringBuffer sbf = new StringBuffer(employee[i].getFirstName());
-        sbf.reverse();
-        employee.setFirstName(sbf.reverse().toString());
+        String name = employee.getFirstName();
+        char[] employee=employeeGetFirstName.toCharArray();
+        int i=0;
+        int j=employee.getFirstName.length-1
+        while(i<j){
+        char temp = employee.getFirstName[i];
+        employee.getFirstName [i] = employee.getFirstName [j] ;
+        employee.getFirstName [j] = temp;
+        i++;
+        j--;
     }
+    employee.setFirstName(new String(employee));
+    System.out.println(employee.getFirstName());
+  }
 
     ------------------------------------------------------------------------------------------
     /*
