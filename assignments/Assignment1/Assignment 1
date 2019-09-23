@@ -248,3 +248,61 @@ return 0;
 
 ----------------------------------------------------------------------
 // 5. Design a Parking lot
+
+
+User can:
+1.insert ticket
+2.pay the ticket
+3.check capacity
+4.find/cancel parking
+
+Class: User
+Data: name, plate number, userLocation, carSize, parking ticket
+Behaviour:
+user.insertParkingTicket(){
+machine.scanTicket(ticketId){
+}
+}
+Behaviour:
+findParking(){
+parkingDetails = user.findParking(parkingId, startTime, endTime)
+}
+
+Behaviour:
+cancel(){
+user.cancelParking();
+}
+
+Class: creditCardDetails
+Data: name, cardNumber, cardType,expiredDate
+Behaviour:
+isCardExpired(){
+if today = new Date;
+if (today.compareTo(expiredDate)==1);
+return true;
+else {
+return false;
+}
+}
+
+Class: Parking lot
+Data: parkingLotLocation, parkingSpace, parkingPrice, date, time
+Behaviour:
+checkAvailability (parkingSpace, date, time){
+//check availability of number of parking space on specific date and time
+}
+
+Class: parking system
+Data: parking ticket, parking hours, parking time)
+Behaviour:
+findParking(parkingId, beginTime, endTime){
+parking Parking;
+int hoursOfParking;
+
+if(creditCardDetails.isCardExpired(){
+int price = parking.price * hoursOfParking;
+paymentService.makePayment(parkingId, price);
+return paymentId;
+}
+else throw new Exception("Card is Expired");
+}
