@@ -4,7 +4,7 @@ Design a Course Registration Platform
 Design a vending Machine (will accept coins of different denominations and vends out candies, soda etc)
 Design a Parking lot
 ---------------------------------------------------------------------------------------------------------
-//Design a Car Rental System
+// 2. Design a Car Rental System
 
 User can:
 1.Login
@@ -105,7 +105,77 @@ cancelrental(carRetnalId){
 paymentService.initialRefund(user,price)
 }
 ---------------------------------------------------------------------------------------------------------
-//Design a vending Machine (will accept coins of different denominations and vends out candies, soda etc)
+// 3. Design a Course Registration Platform
+
+User can:
+1.Login course registration platform
+2.Search course list
+3.Select course
+4.Add/Drop course
+5.Pay
+
+Class: Student
+Data: name, studentId, major
+Behaviour:
+loginRegistrationPlatform(){
+platform.login(name);
+}
+
+searchCourses(searchParams){
+List<Course> course = registrationPlatform.search(search.params);
+//display courses to student
+}
+
+registerCourse(){
+if(course.isAvailable())
+course.add(courseId);
+else
+error;
+}
+
+cancelCourse(){
+student.cancelCourse(courseId)
+}
+
+Class:creditCardDetails
+Data: name, cardNumber,cardType,expiredDate
+Behaviour:
+isCardExpired(){
+Date today = new Date();
+if (today.compareTo(expiredDate) == 1)
+return true;
+return false;
+}
+
+Class: Registration Platform
+Data: courseId, courseAvailability, courseCapacity
+Behaviour:
+checkAvailability(courseId, courseAvailability, courseCapacity){
+// check availability of course
+}
+
+List<Course> availableCourses;
+List<Course> course;
+if(courseurse.isAvailable()){
+Boolean isAvailable = true;
+else false;
+}
+
+if(creditCardDetails.isCardExpired()){
+int price = course.price * numberOfCourse 
+;
+paymentService.makePayment(studentName, price);
+}
+else throw new Exception ("Card is Expired");
+}
+
+Behaviour:
+dropCourse(courseId){
+paymentService.initiateRefund(studentName, price)
+}
+
+---------------------------------------------------------------------------------------------------------
+// 4. Design a vending Machine (will accept coins of different denominations and vends out candies, soda etc)
 
 Customer can
 1.put the coins into a vending machine
@@ -177,3 +247,4 @@ return 0;
 }
 
 ----------------------------------------------------------------------
+// 5. Design a Parking lot
