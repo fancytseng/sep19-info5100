@@ -4,6 +4,46 @@ Design a Course Registration Platform
 Design a vending Machine (will accept coins of different denominations and vends out candies, soda etc)
 Design a Parking lot
 ---------------------------------------------------------------------------------------------------------
+
+// 1.Design a Traffic Controller System for a Junction
+
+Class: Road
+Date: North, South, East, West
+
+
+Class: Traffic Light/Signal
+Data: Green, Yellow, Red
+int Green = green;
+int Yellow = yellow;
+int Red = red;
+if (north.trafficLight == green){
+south.trafficLight == red || south.trafficLight == yellow;
+else{
+south.trafficLight == green;
+}
+}
+
+if (west.trafficLight == green){
+east.trafficLight == red || east.trafficLight == yellow;
+else{
+east.trafficLight == green;
+}
+}
+
+Class: Traffic controller
+Data: Go, Stop
+Int Car: car;
+if (trafficLight.green && car.south == null && car.north == null){
+car.east.go();
+car.west.go();
+}
+else{
+car.west.stop();
+car.west.stop();
+}
+}
+
+-----------------------------------------------------------------------------------------------------------------
 // 2. Design a Car Rental System
 
 User can:
