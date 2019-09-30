@@ -2,7 +2,7 @@ import java.io.LineNumberReader;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class Course {
+public class Assignment3_Course {
 //    Q1. Write a Java class named 'Course'
 //    It should have following members
 //    courseId
@@ -28,6 +28,7 @@ public class Course {
 //    maxCapacity - should not be less than 10 greater than 100
 //    professorId - should be a six digit integer
 //    credits - should be a single digit but greater than 0
+
     private int courseId;
     private String courseName;
     private int maxCapacity;
@@ -136,8 +137,7 @@ public class Course {
     public int[] getStudentIds() {
         return studentIds;
     }
-
-
+}    
 
 
 //    Q3. Add a function called removeDuplicates in Course class
@@ -165,6 +165,8 @@ public class Course {
         }
         return res;
     }
+
+
 // Q4. Implement the following method in Course class.
 //
 //    public int groupsOfStudents(int[] studentIds) {
@@ -195,6 +197,219 @@ public class Course {
 
 }
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class Assignment3 {
+
+//    Q5.
+//    The count-and-say sequence is a sequence of integers with the first five terms as following:
+//            1.     1
+//            2.     11
+//            3.     21
+//            4.     1211
+//            5.     111221
+//
+//            1 is read off as "one 1" or 11.
+//            11 is read off as "two 1s" or 21.
+//            21 is read off as "one 2, then one 1" or 1211.
+//    Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-say sequence.
+//    Note: Each term of the sequence of integers will be represented as a string.
+//
+//            Example 1:
+//    Input: 1
+//    Output: "1"
+//
+//    Example 2:
+//    Input: 4
+//    Output: "1211"
+//    public String countAndSay(int n) {
+//
+//    }
+
+    public String countAndSay(int n){
+        if(n <= 0) {
+            return ""; //return empty string
+        }
+        String res = "1"; //this is the first result (base case)
+        //after the first term which is fixed, we do the loop for the subsequent term
+        while (n > 1) {
+            //build the current term
+            //using string builder because string builder is mutable(can be changed after it's created
+            // and string is not
+            StringBuilder cur = new StringBuilder();
+            for (int i = 0; i < res.length(); i++) { //go to the previous term
+                int count = 1; //and count how many times each element appear
+                // make sure it is always in bound, and
+                // if this element is the same as the next element
+                // the loop will terminate if res.charAt(i) != res.length(i++)
+                while ( i +1 < res.length() && res.charAt(i) == res.charAt(i + 1)){
+                    //then we count one more time(increment the count)
+                    count++;
+                    //also increment i to check the next term
+                    i++;
+                }
+            /* after the while loop above, we can know how many times the element in position i
+               have appeared.
+               Then we can build our current term. (below code block)
+               In order for us to know the current term, we need to know the previous term.
+               Because we have to count the previous term, and say, and get the current term.
+            */
+
+            //build the current term
+            //current append the first count, and append res.charAt(i) because from the above,
+            //we know that the loop will end if the element in [i] and [i+1] is different, so
+            //we the element in [i] is what we want to count for
+            cur.append(count).append(res.charAt(i));
+
+            }
+
+            res = cur.toString();
+            ///loops run (n-1) times
+            //excute the while loop (n-1) time to get the nth term
+            n--;
+        }
+        return res; //at the end, we return the result
+    }
+
+
+//    Q6. Given an input string , reverse the string word by word.
+//            Example:
+//    Input : “the sky is blue”
+//    Output : “blue is sky the”
+//    Assumptions:
+//    A word is defined as a sequence of non-space characters.
+//    The input string does not contain leading or trailing spaces.
+//    The words are always separated by a single space.
+
+    public String reverseWords(String s){
+        String[] words = s.trim().split("\\s+");
+        Collections.reverse(Arrays.asList(words));
+        return String.join(" ", words);
+    }
+
+
+//    Q7.
+//    Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+//    Example 1:
+//    Input:
+//            [
+//            [ 1, 2, 3 ],
+//            [ 4, 5, 6 ],
+//            [ 7, 8, 9 ]
+//            ]
+//    Output: [1,2,3,6,9,8,7,4,5]
+//
+//    Example 2:
+//    Input:
+//            [
+//            [1, 2, 3, 4],
+//            [5, 6, 7, 8],
+//            [9,10,11,12]
+//            ]
+//    Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+//
+//    public int[] spiralOrder(int[][] matrix) {
+//    }
+
+    public List spiralOrder(int[][][][] matrix) {
+        List ans = new ArrayList();
+        int i;
+        int m =0; //number of row
+        int n = 0; //number column
+        int k = 0;
+        int l = 0;
+        int last_row = m - 1;
+        int las_col = n - 1;
+        while (k <= last_row && l <= las_col) {
+            int last_col = 0;
+            //print first row
+            for (i = l; i <= last_col; i++) {
+                //System.out.println(matrix[k][i]);
+                ans.add(matrix[k][i]);
+                k++;
+            }
+            //print last column
+            for (i = k; i <= last_row; i++) {
+                //System.out.println(matrix[i][last_col]);
+                ans.add(matrix[i][last_col]);
+                last_col--;
+            }
+            //print last row
+            if (k <= last_row) {
+                for (i = last_col; i >= l; i--) {
+                    //System.out.println(matrix[last_row][i]);
+                    ans.add(matrix[last_row][i]);
+                    last_row--;
+                }
+            }
+            //print first column
+            if (l <= last_row) {
+                for (i = last_row; i >= k; i++) {
+                    //System.out.println(matrix[i][l]);
+                    ans.add(matrix[i][l]);
+                    l++;
+
+                }
+            }
+        }
+        return ans;
+    }
+
+
+//    Q8.
+//    The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this
+//    P   A   H   N
+//    A P L S I I G
+//    Y   I   R
+//    And then read line by line: "PAHNAPLSIIGYIR"
+//    Write the code that will take a string and make this conversion given a number of rows:
+//    String convert(string s, int numRows);
+//    Example 1:
+//    Input: s = "PAYPALISHIRING", numRows = 3
+//    Output: "PAHNAPLSIIGYIR"
+//
+//    Example 2:
+//    Input: s = "PAYPALISHIRING", numRows = 4
+//    Output: "PINALSIGYAHRPI"
+//    Explanation:
+//
+//    P     I    N
+//    A   L S  I G
+//    Y A   H R
+//    P     I
+    public String convert(String s, int numRows){
+        if (numRows <= 1){
+            return s;
+        }
+        ////use StringBuilder to store ever row
+        StringBuilder[] sb = new StringBuilder[numRows];
+        for (int i = 0; i < numRows; i++){
+            sb[i] = new StringBuilder();
+        }
+        int index = 0;
+        while(index < s.length()){
+            //arrow going down action
+            for (int i = 0; i <numRows && index < s.length(); i++){
+                sb[i].append(s.charAt(index));
+                index++;
+            }
+            //arrow going up action
+            for(int i = numRows - 2; i >0  && index < s.length(); i--) {
+                sb[i].append(s.charAt(index));
+                index++;
+            }
+        }
+        //put all the stringBuilders (sb[i]) to one tringBuilder (sb[0])
+        for(int i = 1; i < numRows; i++){
+            sb[0].append(sb[i]);
+        }
+        return sb[0].toString();
+    }
+    
+
 /* Q9. Explain Encapsulation with an example. (Write at least 30-40 words).
 
        Encapsulation is a process of binding/wrapping code and data together into a single unit
@@ -211,10 +426,11 @@ public class Course {
 
  */
 
+
 /* Q10. What is the difference between Encapsulation and Abstraction.
         Encapsulation is binding/wrapping code and data together into a single unit.
         It sets the variable in the class private so that other classes or objects
         cannot access the private variables.
         Abstraction is to hide the internal details and show the functionality only.
-
- */
+        
+}
