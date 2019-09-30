@@ -2,7 +2,7 @@ import java.io.LineNumberReader;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class Assignment3_Course {
+public class Course {
 //    Q1. Write a Java class named 'Course'
 //    It should have following members
 //    courseId
