@@ -52,18 +52,24 @@ public class Assignment3_Course {
     }
 
     public Assignment3_Course(int courseId) {
-        this.courseId = courseId;
+        setCourseId(courseId);
+        //this.courseId = courseId;
     }
 
     public Assignment3_Course(int courseId, int professorId) {
-        this.courseId = courseId;
-        this.professorId = professorId;
+        setCourseId(courseId);
+        setProfessorId(ProfessorId);
+        //this.courseId = courseId;
+        //this.professorId = professorId;
     }
 
     public Assignment3_Course(int courseId, int professorId, int credits) {
-        this.courseId = courseId;
-        this.professorId = professorId;
-        this.credits = credits;
+        setCourseId(courseId);
+        setProfessorId(ProfessorId);
+        setCredits(credits);
+        //this.courseId = courseId;
+        //this.professorId = professorId;
+        //this.credits = credits;
     }
     public void setCourseId(int courseId) {
         if (courseId > 0 ) {
