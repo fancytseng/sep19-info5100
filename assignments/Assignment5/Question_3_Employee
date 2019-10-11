@@ -1,0 +1,27 @@
+public abstract class Employee {
+
+    private String name; //object variable
+    private int paymentPerHour; //object variable
+
+    public Employee(String name, int paymentPerHour){ //constructor bc the name is the same as the class ("Employee")
+        this.name = name;
+        this. paymentPerHour = paymentPerHour;
+
+    }
+
+    public abstract int calculateSalary(); //bc it is abstract so no return value, we do not need "{}", we just need ";"
+
+    public String getName(){ //object method
+        return name;
+    }
+    public void setName(String name) { //object method
+        this.name = name;
+    }
+
+    public int getPaymentPerHour(){ //object method
+        return paymentPerHour;
+    }
+    public void setPaymentPerHour(int paymentPerHour){ //object method
+        this.paymentPerHour = paymentPerHour;
+    }
+}
