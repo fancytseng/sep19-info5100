@@ -1,0 +1,14 @@
+public class Constractor extends Employee {
+    private int workingHours;
+
+    public Constractor (String name, int paymentPerHour, int workingHours ){
+        super(name, paymentPerHour);
+        this.workingHours = workingHours;
+
+    }
+
+    public int calculateSalary(){
+        return getPaymentPerHour() * workingHours;
+    }
+
+}
