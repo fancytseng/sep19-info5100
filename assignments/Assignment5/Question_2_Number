@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Number {
+    public void count(){
+        int numerator;
+        int denominator;
+        int result;
+        Scanner sc = new Scanner(System.in);
+        
+        try{
+        
+            //nextInt() will throw an InputMismatchException if we do not input an integer
+            System.out.println("Enter the numerator");
+            numerator = sc.nextInt();
+
+            System.out.println("Enter the denominator:");
+            denominator = sc.nextInt();
+            
+            //result = quotient( numerator, denominator );
+            result = denominator / numerator;
+            System.out.println("Result : " + result);
+        }
+        catch (ArithmeticException e){
+
+            System.out.println("Error : Can't be divided by Zero");
+        }
+
+    }
+}
