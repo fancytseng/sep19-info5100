@@ -24,6 +24,6 @@ public class Number {
 
             System.out.println("Error : Can't be divided by Zero");
         }
-
+        System.out.println("Done! End the program!");
     }
 }
