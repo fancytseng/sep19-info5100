@@ -1,0 +1,47 @@
+package Assignment5;
+
+import java.util.Random;
+
+public class MyIndexOutOfBoundException extends Throwable {
+    int lowerBound, upperBound, index;
+
+    MyIndexOutOfBoundException(){
+
+    }
+
+    MyIndexOutOfBoundException(int index, int lowerBound, int upperBound){
+        this.lowerBound = lowerBound;
+        this.upperBound = upperBound;
+        this.index = index;
+
+    }
+//    “Error Message: Index: 10, but Lower bound: 0, Upper bound: 9”
+
+    public String toString(){
+        return "Error Message: Index: " + index + " ,but Lower bound: " + lowerBound + ", Upper bound: " +
+                upperBound;
+    }
+
+    public static void main (String[] args){
+        final int SIZE = 9;
+        int[] nums = new int[SIZE];
+
+        Random random = new Random();
+
+        while (true) {
+            int i = 10;
+            try {
+                if (i >= SIZE) {
+                    throw new MyIndexOutOfBoundException(i, 0, 9);
+                }
+                else {
+                    nums[i] = random.nextInt(SIZE);
+                }
+            } catch ( MyIndexOutOfBoundException ex) {
+                System.out.println(ex.toString());
+                return;
+            }
+        }
+    }
+
+}
