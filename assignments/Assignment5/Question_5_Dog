@@ -1,0 +1,92 @@
+package Assignment5;
+
+
+import java.util.Calendar;
+import java.util.Date;
+
+public class Dog extends Pet implements Boardable {
+    private String size;
+    private Date boardingStart;
+    private Date boardingEnd;
+    private Date startMonth;
+    private Date startDay;
+    private Date startYear;
+    private int endMonth;
+    private int endDay;
+    private int endYear;
+
+    Dog(String name, String ownerName, String color, String size){
+        super(name, ownerName, color);
+        this.size = size;
+    }
+
+    public String getSize(){
+        return size;
+    }
+
+    public String toString(){
+        return "DOG :" + "\n" + getPetName() + " owned by " + getOwnerName() + "\n"
+        + "Color: " + getColor() + "\n" + "Sex : " + getSex() + "\n"
+        + "Size: " + getSize();
+
+    }
+
+    @Override
+    public void setBoardEnd(int month, int day, int year) {
+        this.endMonth = month;
+        this.endDay = day;
+        this.endYear = year;
+    }
+
+
+    @Override
+
+    public void setBoardEnd(int month, int day, int year) {
+        this.endMonth = month;
+        this.endDay = day;
+        this.endYear = year;
+    }
+
+    @Override
+    public boolean boarding(int month, int day, int year) {
+
+        Calendar c = Calendar.getInstance();
+        c.set(year, month, day, 0, 0);
+        c.set(Calendar.HOUR_OF_DAY, 0);
+        c.set(Calendar.MINUTE, 0);
+        c.set(Calendar.SECOND, 0);
+        c.set(Calendar.MILLISECOND, 0);
+        Date testDate = c.getTime();
+
+        Calendar c1 = Calendar.getInstance();
+        c1.set(startYear, startMonth, startDay, 0, 0);
+        c1.set(Calendar.HOUR_OF_DAY, 0);
+        c1.set(Calendar.MINUTE, 0);
+        c1.set(Calendar.SECOND, 0);
+        c1.set(Calendar.MILLISECOND, 0);
+        Date startDate = c1.getTime();
+
+        Calendar c2 = Calendar.getInstance();
+        c2.set(endYear, endMonth, endDay, 0, 0);
+        c2.set(Calendar.HOUR_OF_DAY, 0);
+        c2.set(Calendar.MINUTE, 0);
+        c2.set(Calendar.SECOND, 0);
+        c2.set(Calendar.MILLISECOND, 0);
+        Date endDate = c2.getTime();
+        return ((testDate.after(startDate) && testDate.before(endDate))
+                || testDate.equals(startDate) || testDate.equals(endDate));
+
+    }
+
+//DOG:
+//Spot owned by Susan
+//Color: white
+//Sex: spayed
+//Size: medium
+    public static void main(String[] args) {
+        Dog dog = new Dog("Spot", "Susan", "white", "medium");
+        // Setting only allowed for sex
+        sexid = 3;
+        System.out.println(dog.toString() + "\n");
+    }
+}
