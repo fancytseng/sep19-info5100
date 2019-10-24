@@ -1,0 +1,14 @@
+II. Write two differences between ArrayList and LinkedList. (Score 1)
+
+- ArrayList and LinkedList both implement List interface.
+- ArrayList internally uses a dynamic array to store the elements, which meansArrayList is a resizable array.
+We can fix the length later since the length is not fixed. As more elements are added to the ArrayList, its size
+increased. Since ArrayList is essentially an Array, we can simply/directly use get and set method to access/get the
+elements in the ArrayList. ArrayList is sorted sequentially.
+- LinkedList uses a doubly linked list to store the elements. Its performance on add and remove is better than ArrayList,
+ but worse on get and set methods.
+- ArrayList is better for sorting and accessing data(set/get method). LinkedList is better for manipulating data(add/remove)
+method.
+- Space Complexity: LinkedList < ArrayList
+- Manipulation with ArrayList is slow because it internally uses an array. If any element is removed from the array,
+ all the bits are shifted in memory. However, for LinkedList, we only add and remove one link every time.
