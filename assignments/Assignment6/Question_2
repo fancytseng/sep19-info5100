@@ -12,3 +12,4 @@ method.
 - Space Complexity: LinkedList < ArrayList
 - Manipulation with ArrayList is slow because it internally uses an array. If any element is removed from the array,
  all the bits are shifted in memory. However, for LinkedList, we only add and remove one link every time.
+
