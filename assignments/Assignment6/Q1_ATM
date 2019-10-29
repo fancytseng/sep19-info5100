@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class ATM {
+public class Q1_ATM {
     private double availableAmountInMachine;
     private double transactionFee; // % fee of each transaction charged
     private ArrayList<User> users;
