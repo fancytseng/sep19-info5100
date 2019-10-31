@@ -1,0 +1,49 @@
+package Assignment7;
+/*
+Write a program that read sentences from a file and reverse sentences word by word. After reverse, create a new file to save sentences. (Extreme corner case is not mandatory.)
+
+Example:
+Input file: the sky is blue.
+Output file: blue is the sky.
+ */
+
+import java.util.Scanner;
+
+
+public class Q1 {
+
+    public static String reverseTheSentence(String inputString)
+    {
+        //\s means space and \\s makes it regex to match a space.
+        //Split inputString into words and store them in a string array.
+        String[] words = inputString.split("\\s");
+
+        //Create one empty outputString object.
+        String outputString = "";
+
+        //Starting from last word of words array, append each word to outputString.
+        for (int i = words.length - 1; i >= 0; i--)
+        {
+            outputString = outputString + words[i] + " ";
+        }
+
+        return outputString;
+    }
+
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter Input String :");
+
+        String inputString = sc.nextLine();
+
+        String outputString = reverseTheSentence(inputString);
+
+        System.out.println("Input String : " + inputString);
+
+        System.out.println("Output String : " + outputString);
+
+        sc.close();
+    }
+}
