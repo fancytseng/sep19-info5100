@@ -1,0 +1,59 @@
+package Assignment7;
+/*
+Write a program that decode a file. Given an encoded file, create its decoded file. The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times. Note that k is guaranteed to be a positive integer.
+
+Assume that the string from input file is always valid; No extra white spaces, square brackets are well-formed, etc.
+
+Furthermore, assume that the original data does not contain any digits and that digits are only for those repeat numbers, k. For example, there won't be input like 3a or 2[4].
+
+Examples:
+Input file: "3[a]2[bc]", output file: "aaabcbc".
+Input file: "3[a2[c]]", output file: "accaccacc".
+Input file: "2[abc]3[cd]ef", output file: "abcabccdcdcdef".
+ */
+
+import java.util.Stack;
+
+public class Q2 {
+    public String decodeString(String s) {
+        Stack<Integer> countStack = new Stack<>();
+        Stack<String> resStack = new Stack<>();
+        String res = "";
+        int index = 0;
+        while (index < s.length()) {
+            //there are four types of characters, letter, number(Digit), open bracket, closed bracket
+            //using Character method
+            //if the character is digit(number), if "s.charAt(index)" is a digit
+            if (Character.isDigit(s.charAt(index))) {
+                int count = 0;
+                while (Character.isDigit(s.charAt(index))) {
+                    //covert string to integer
+                    count = 10 * count + (s.charAt(index) - '0');
+                    index++;
+                }
+                countStack.push(count);
+            }
+            else if (s.charAt(index) == '[') {
+                resStack.push(res);
+                res = "";
+                index++;
+            }
+            else if (s.charAt(index) == ']') {
+                StringBuilder temp = new StringBuilder (resStack.pop());
+                //number of times we want to repeat the things in the res
+                int repeatTimes = countStack.pop();
+                for (int i = 0; i < repeatTimes; i++) {
+                    temp.append(res);
+                }
+                res = temp.toString();
+                index++;
+            }
+            else {
+                //whenever we see the character, we add the character to the current string
+                res += s.charAt(index);
+                index++;
+            }
+        }
+        return res;
+    }
+}
