@@ -1,0 +1,114 @@
+package Assignment7;
+
+import java.io.*;
+
+/*
+5100 Assignment7 Q3
+Write a program that will count the number of lines in each file that is specified on the command line.
+
+Assume that the files are text files.
+
+Note that multiple files can be specified, as in "java LineCounts file1.txt file2.txt file3.txt". Write each file name,
+along with the number of lines in that file, to standard output. If an error occurs while trying to read from one of
+the files, you should print an error message for that file, but you should still process all the remaining files.
+ */
+
+
+public class Q3 {
+    public static void main(String[] args) {
+
+        if (args.length == 0) {
+            // This program must have at least one command-line 
+            // argument to work with.
+            System.out.println("Usage: java LineCounts <file-names>");
+            return;
+        }
+
+        for (int i = 0; i < args.length; i++) {
+            System.out.print(args[i] + ":  ");
+            countLines(args[i]);
+        }
+
+    }
+
+    /*
+    The countLines() subroutine will catch any errors that occur when it tries to access the file.
+    If an error occurs, it will output an error message instead of the number of lines. Since the
+    error is handled in the subroutine, it won't crash the program or stop the main() routine from
+    going on to process any remaining files.
+    The countLines() subroutine can be written using either a TextReader, a BufferedReader, or a Scanner to read lines
+    from the file; each of these classes has a simple method for reading a complete line of text from the file.
+
+
+     The countLines() method creates a BufferedReader stream to read from the file. It then calls the readLine()
+     routine from the BufferedReader class to read lines of text from the file, until the end of the file is
+     encountered.
+     For a BufferedReader, the end-of-file can be recognized when readLine() returns null. The method
+     counts each line as it reads it. In the end, the value of the counter is the number of lines in the file. The
+     subroutine writes this value to standard output. All this is done in try..catch statements so that an error can
+     be handled if it occurs.
+
+     All the I/O stuff must be in a try/catch. Everything can throw an IOException.
+     Reading from a Text File: reading lines in a while loop, and ending the loop when the result of a readLine() is
+     null, which means there is nothing left to read.
+     */
+
+    /**
+     * Count the number of lines in the specified file, and
+     * print the number to standard output.  If an error occurs
+     * while processing the file, print an error message instead.
+     * Two try..catch statements are used so that we can give a
+     * different error message in each case.
+     */
+
+    private static void countLines(String fileName) {
+
+        //BufferedReader in;  // A stream for reading from the file.
+        int lineCount;      // Number of lines in the file.
+
+        try {
+            BufferedReader reader = new BufferedReader( new FileReader(fileName) );
+            //HeadFirst Java p.454
+            //File fileName = new File(“MyText.txt”);
+            //FileReader fileReader = new FileReader(fileName);
+            //BufferedReader reader = new BufferedReader(fileReader);
+        }
+        catch (IOException e) {
+            System.out.println("Error. Cannot open the file.");
+
+            return;
+        }
+
+        lineCount = 0;
+
+
+        try {
+
+            BufferedReader reader = new BufferedReader( new FileReader(fileName) );
+            //File fileName = new File(“MyText.txt”);
+            //FileReader fileReader = new FileReader(fileName);
+            //BufferedReader reader = new BufferedReader(fileReader);
+            String line = reader.readLine();   // Read the first line.
+            while (line != null) {
+                lineCount++;               // Count this line.
+                line = reader.readLine();      // Read the next line.
+            }
+            //while ((line = reader.readLine()) != null) {
+            //   System.out.println(line);
+            //}
+        }
+        catch (Exception e) {
+            System.out.println("Error. There is some problems with reading from file.");
+            return;
+        }
+
+        System.out.println(lineCount + " lines");
+
+    }  // end countLines()
+
+
+} // end class Q3
+
+
+
+
