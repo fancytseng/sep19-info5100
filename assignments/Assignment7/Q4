@@ -1,0 +1,63 @@
+public class Q4 {
+    static long sum1 = 0;
+    static long sum2 = 0;
+    static long sum3 = 0;
+    static long sum4 = 0;
+
+    /*generate array of random numbers*/
+    static void generateRandomArray(int[] arr){
+        Random r = new Random();
+        r.setSeed(1000000);
+        for( int i = 0; i < arr.length; i++) {
+            arr[i] =  r.nextInt();
+        }
+    }
+
+    /*get sum of an array using 4 threads*/
+    static long sum(int[] arr){
+
+        Thread thread1 = new Thread(){
+            public void run(){
+                sum1 = countSum(arr,0, 1000000);
+            }
+        };
+        Thread thread2 = new Thread(){
+            public void run(){
+                sum2 = countSum(arr,1000000, 2000000);
+            }
+        };
+        Thread thread3 = new Thread(){
+            public void run(){
+                sum3 = countSum(arr,2000000, 3000000);
+            }
+        };
+        Thread thread4 = new Thread(){
+            public void run(){
+                sum4 = countSum(arr,3000000, 4000000);
+            }
+        };
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        thread4.start();
+
+        return sum1+sum2+sum3+sum4;
+    }
+
+    static long countSum(int[] arr, int start, int end){
+        long sum = 0;
+        for ( int i = start; i < end; i++) {
+            sum += arr[i];
+        }
+        return sum;
+    }
+
+    public void main(String[] args){
+        int[] arr = new int[4000000];
+        generateRandomArray(arr);
+        long sum = sum(arr);
+        System.out.println("Sum: " + sum);
+    }
+
+
+}
